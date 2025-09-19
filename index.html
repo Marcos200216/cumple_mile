@@ -136,7 +136,7 @@
   <div class="heart" style="left: 90%; animation-delay: 3s;"></div>
 
   <div class="container">
-    <h1>Ingresa el año en el que nos conocimos 💕</h1>
+    <h1>Ingresa el año en el que nos conocimos</h1>
     <input type="text" class="input" id="yearInput" readonly maxlength="4">
     <div class="keyboard">
       <button class="key">1</button>
@@ -171,13 +171,13 @@
         } else if (val === "→") {
           if (input.value === correctYear) {
             message.style.color = "lightgreen";
-            message.textContent = "💖 ¡Correcto, mi amor! 💖";
+            message.textContent = "¡Correcto, mi niña!";
             setTimeout(() => {
               window.location.href = "index2.html";
             }, 1200);
           } else {
-            message.style.color = "pink";
-            message.textContent = "❌ Incorrecto, intenta otra vez";
+            message.style.color = "red";
+            message.textContent = "Incorrecto, intenta otra vez";
           }
         }
       });
