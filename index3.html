@@ -14,9 +14,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     flex-direction: column;
+    padding: 1rem;
   }
 
   h1 {
@@ -24,55 +25,67 @@
     font-family: 'Dancing Script', cursive;
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    text-align: center;
     text-shadow: 0 0 10px rgba(0,0,0,0.3);
   }
 
-  .carousel-container {
+  .stack-container {
     position: relative;
     width: 90%;
-    max-width: 500px;
-  }
-
-  .carousel {
+    max-width: 400px;
+    height: 60vh;
     display: flex;
-    overflow: hidden;
-    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
   }
 
   .card {
-    min-width: 100%;
-    background: rgba(255,255,255,0.2);
+    position: absolute;
+    width: 90%;
+    max-width: 350px;
     padding: 3rem 2rem;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #fff;
+    background: white;
+    color: #ff4d6d;
     font-family: 'Dancing Script', cursive;
-    border-radius: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: 25px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.4);
   }
 
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
+  .bottom {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .bottom p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #fff5f7;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(0,0,0,0.2);
   }
 
   .btn {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     border: none;
     border-radius: 30px;
-    padding: 0.5rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: all 0.3s;
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s;
   }
 
   .btn:hover {
@@ -80,12 +93,37 @@
     box-shadow: 0 8px 15px rgba(0,0,0,0.4);
   }
 
+  /* X de cierre */
+  .close-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: rgba(255,255,255,0.8);
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    z-index: 9999;
+  }
+
+  .close-btn:hover {
+    background: rgba(255,255,255,1);
+    transform: scale(1.1);
+  }
+
   /* corazones flotando */
   .heart {
     position: absolute;
     bottom: -50px;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background: rgba(255, 255, 255, 0.7);
     transform: rotate(45deg);
     animation: float 6s infinite ease-in;
@@ -95,41 +133,40 @@
   .heart::after {
     content: "";
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background: inherit;
     border-radius: 50%;
   }
-  .heart::before { top: -10px; left: 0; }
-  .heart::after { left: -10px; top: 0; }
+  .heart::before { top: -7px; left: 0; }
+  .heart::after { left: -7px; top: 0; }
 
   @keyframes float {
     0% { transform: translateY(0) rotate(45deg) scale(0.8); opacity: 1; }
     100% { transform: translateY(-110vh) rotate(45deg) scale(1.2); opacity: 0; }
   }
+
+  @media (max-width: 600px) {
+    .card { font-size: 1.1rem; padding: 2rem 1.5rem; }
+    h1 { font-size: 2rem; }
+    .bottom p { font-size: 1.3rem; }
+    .btn { font-size: 1rem; padding: 0.5rem 1.2rem; }
+  }
 </style>
 </head>
 <body>
+  <!-- Botón X -->
+  <button class="close-btn" onclick="location.href='index2.html'">✖</button>
+
   <h1>100 Razones para Amarte 💖</h1>
 
-  <div class="carousel-container">
-    <div class="carousel" id="carousel">
-      <div class="card">1. Por tu sonrisa que ilumina mi día 🌞</div>
-      <div class="card">2. Por la manera en que me entiendes sin palabras 💬</div>
-      <div class="card">3. Por cada abrazo que me hace sentir en casa 🏡</div>
-      <div class="card">4. Por tu risa contagiosa 😂</div>
-      <div class="card">5. Por la paciencia que tienes conmigo 🙏</div>
-      <div class="card">6. Por tu mirada llena de amor 😍</div>
-      <div class="card">7. Por cada momento que compartimos juntos ⏳</div>
-      <div class="card">8. Por tu apoyo en mis locuras 💪</div>
-      <div class="card">9. Por hacerme sentir especial todos los días ✨</div>
-      <div class="card">10. Por ser tú, simplemente tú 💕</div>
-      <!-- Agrega hasta 100 aquí -->
-    </div>
-    <div class="buttons">
-      <button class="btn" id="prev">⏪ Anterior</button>
-      <button class="btn" id="next">⏩ Siguiente</button>
-    </div>
+  <div class="stack-container" id="stack">
+    <!-- Tarjetas generadas con JS -->
+  </div>
+
+  <div class="bottom">
+    <p>Y por último toca aquí 👉</p>
+    <button class="btn" onclick="location.href='index4.html'">Siguiente Sorpresa</button>
   </div>
 
   <!-- Corazones flotando -->
@@ -140,26 +177,35 @@
   <div class="heart" style="left: 90%; animation-delay: 3s;"></div>
 
 <script>
-  const carousel = document.getElementById('carousel');
-  const cards = document.querySelectorAll('.card');
-  const total = cards.length;
-  let index = 0;
+  const stack = document.getElementById('stack');
 
-  function showCard(i) {
-    carousel.style.transform = `translateX(-${i * 100}%)`;
-  }
+  const razones = [
+    "Por tu sonrisa que ilumina mi día 🌞",
+    "Por la manera en que me entiendes sin palabras 💬",
+    "Por cada abrazo que me hace sentir en casa 🏡",
+    "Por tu risa contagiosa 😂",
+    "Por la paciencia que tienes conmigo 🙏",
+    "Por tu mirada llena de amor 😍",
+    "Por cada momento que compartimos juntos ⏳",
+    "Por tu apoyo en mis locuras 💪",
+    "Por hacerme sentir especial todos los días ✨",
+    "Por ser tú, simplemente tú 💕"
+    // Agrega hasta 100
+  ];
 
-  document.getElementById('next').addEventListener('click', () => {
-    index = (index + 1) % total;
-    showCard(index);
+  razones.reverse().forEach((texto, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.textContent = texto;
+    card.style.zIndex = i + 1;
+    stack.appendChild(card);
+
+    card.addEventListener('click', () => {
+      card.style.transform = 'translateY(-250px) rotate(15deg)';
+      card.style.opacity = '0';
+      setTimeout(() => stack.removeChild(card), 400);
+    });
   });
-
-  document.getElementById('prev').addEventListener('click', () => {
-    index = (index - 1 + total) % total;
-    showCard(index);
-  });
-
-  showCard(index);
 </script>
 </body>
 </html>
