@@ -21,6 +21,33 @@
     overflow: hidden;
   }
 
+  /* Botón X elegante */
+  .close-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 9999;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+  }
+
+  .close-btn:hover {
+    transform: scale(1.2) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  }
+
   .text-container {
     max-width: 600px;
     font-size: 1.8rem;
@@ -111,6 +138,9 @@
 </style>
 </head>
 <body>
+
+  <!-- Botón X elegante -->
+  <button class="close-btn" onclick="location.href='index2.html'">×</button>
 
   <div class="text-container" id="text"></div>
 

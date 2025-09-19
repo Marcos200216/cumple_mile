@@ -108,19 +108,31 @@
     color: #333;
   }
 
-  .close-btn {
-    position: absolute;
-    top: 10px;
+  /* X fija esquina superior derecha que va a index2 */
+  .fixed-close-btn {
+    position: fixed;
+    top: 15px;
     right: 15px;
-    font-size: 1.5rem;
-    background: #ff4d6d;
-    color: white;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     border: none;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 9999;
+  }
+
+  .fixed-close-btn:hover {
+    transform: scale(1.2) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   }
 
   /* corazones flotando */
@@ -161,6 +173,9 @@
 </head>
 <body>
 
+  <!-- Botón X fijo esquina superior derecha -->
+  <button class="fixed-close-btn" onclick="location.href='index2.html'">&times;</button>
+
   <h1>Nuestra Primera Cita</h1>
   <h2>Toca cada foto</h2>
 
@@ -174,7 +189,6 @@
 
   <div class="overlay" id="overlay">
     <div class="overlay-content" id="overlayContent">
-      <button class="close-btn" id="closeBtn">&times;</button>
       <img src="" id="overlayImg" alt="Foto">
       <p id="overlayText"></p>
     </div>
@@ -187,14 +201,11 @@
   <div class="heart" style="left: 70%; animation-delay: 3s;"></div>
   <div class="heart" style="left: 90%; animation-delay: 4s;"></div>
 
-  
-
 <script>
   const photos = document.querySelectorAll('.photo');
   const overlay = document.getElementById('overlay');
   const overlayImg = document.getElementById('overlayImg');
   const overlayText = document.getElementById('overlayText');
-  const closeBtn = document.getElementById('closeBtn');
 
   photos.forEach(photo => {
     photo.addEventListener('click', () => {
@@ -202,10 +213,6 @@
       overlayImg.src = photo.src;
       overlayText.textContent = photo.dataset.text;
     });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    overlay.classList.remove('active');
   });
 
   overlay.addEventListener('click', (e) => {

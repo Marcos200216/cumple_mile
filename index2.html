@@ -23,6 +23,7 @@
       color: #fff;
       text-align: center;
       padding: 2rem;
+      position: relative;
     }
 
     .grid {
@@ -68,7 +69,6 @@
     }
 
     .btn {
-      background: #ff758c;
       background: linear-gradient(135deg, #ff758c, #ff7eb3);
       border: none;
       border-radius: 30px;
@@ -84,20 +84,51 @@
       transform: scale(1.1);
       box-shadow: 0 8px 15px rgba(0,0,0,0.4);
     }
+
+    /* X fija esquina superior derecha */
+    .fixed-close-btn {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      z-index: 9999;
+    }
+
+    .fixed-close-btn:hover {
+      transform: scale(1.2) rotate(90deg);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
   </style>
   <!-- Tipografía romántica -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Botón X fijo esquina superior derecha -->
+  <button class="fixed-close-btn" onclick="location.href='index.html'">&times;</button>
+
   <div class="grid">
     <div class="card" onclick="location.href='index3.html'">100 razones para amarte</div>
-    <div class="card" onclick="location.href='index4.html'">🌹 Opción 2</div>
-    <div class="card" onclick="location.href='index5.html'">✨ Opción 3</div>
-    <div class="card" onclick="location.href='index6.html'">🎁 Opción 4</div>
+    <div class="card" onclick="location.href='index4.html'">Un deseo especial</div>
+    <div class="card" onclick="location.href='index5.html'">Nuestra primer cita</div>
+    <div class="card" onclick="location.href='index6.html'">Para tí con amor</div>
   </div>
 
   <div class="bottom">
-    <p>Y por último toca aquí 👉</p>
+    <p>Y por último toca aquí</p>
     <button class="btn" onclick="location.href='index7.html'">Sorpresa</button>
   </div>
 </body>
