@@ -1987,7 +1987,7 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-  font-size: 50px;          /* más grande */
+  font-size: 70px;          /* más grande */
   font-weight: bold;
   color: white;              /* destaca sobre el fondo */
   text-shadow: 0 0 10px black; /* para resaltar aún más */
@@ -1995,12 +1995,14 @@ body {
   z-index: 10000;            /* muy por encima de todo */
   background: rgba(0, 0, 0, 0.6); /* semi-transparente para que contraste */
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 0 20px #fff, 0 0 40px #ff4d6d;
+
 }
 
 .close-button:hover {
