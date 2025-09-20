@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>100 Razones para Amarte</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
   body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Merriweather', serif;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     display: flex;
     justify-content: center;
@@ -43,19 +44,44 @@
     position: absolute;
     width: 90%;
     max-width: 350px;
-    padding: 3rem 2rem;
+    height: 200px; /* altura fija */
+    padding: 1.5rem;
     background: white;
-    color: #ff4d6d;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.3rem;
+    color: #444;
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
     text-align: center;
-    border-radius: 25px;
-    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    border-radius: 20px;
+
     cursor: pointer;
     transition: transform 0.4s ease, opacity 0.4s ease;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    overflow: hidden; /* evita que sobresalga */
+  }
+.card::before {
+  content: "❤";
+  position: absolute;
+  font-size: 4rem;
+  color: rgba(255, 182, 193, 0.3);
+  top: 10px;
+  left: 15px;
+}
+
+.card::after {
+  content: "❤";
+  position: absolute;
+  font-size: 4rem;
+  color: rgba(255, 182, 193, 0.3);
+  bottom: 10px;
+  right: 15px;
+}
+  .card p {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* scroll si es necesario */
+    max-height: 100%;
   }
 
   .card:hover {
@@ -119,9 +145,8 @@
   }
 
   @media (max-width: 600px) {
-    .card { font-size: 1.1rem; padding: 2rem 1.5rem; }
+    .card { font-size: 1rem; height: 180px; }
     h1 { font-size: 2rem; }
-    .btn { font-size: 1rem; padding: 0.5rem 1.2rem; }
   }
 </style>
 </head>
@@ -146,23 +171,115 @@
   const stack = document.getElementById('stack');
 
   const razones = [
-    "1. Por tu sonrisa que ilumina mi día 🌞",
-    "2. Por la manera en que me entiendes sin palabras 💬",
-    "3. Por cada abrazo que me hace sentir en casa 🏡",
-    "4. Por tu risa contagiosa 😂",
-    "5. Por la paciencia que tienes conmigo 🙏",
-    "6. Por tu mirada llena de amor 😍",
-    "7. Por cada momento que compartimos juntos ⏳",
-    "8. Por tu apoyo en mis locuras 💪",
-    "9. Por hacerme sentir especial todos los días ✨",
-    "10. Por ser tú, simplemente tú 💕"
-    // Agrega hasta 100
+    "Porque me haces sonreír sin intentarlo",
+    "Porque tu voz me calma",
+    "Porque en tus ojos encuentro paz",
+    "Porque abrazarte es mi lugar favorito",
+    "Porque siempre crees en mí",
+    "Porque me entiendes sin palabras",
+    "Porque me haces sentir especial",
+    "Porque contigo todo es más bonito",
+    "Porque eres mi persona favorita",
+    "Porque tu risa es mi melodía preferida",
+    "Porque me haces soñar",
+    "Porque tus besos son mágicos",
+    "Porque siempre me apoyas",
+    "Porque me enseñas a amar de verdad",
+    "Porque me haces mejor persona",
+    "Porque sabes cómo alegrar mis días",
+    "Porque me aceptas como soy",
+    "Porque me das paz",
+    "Porque haces que todo valga la pena",
+    "Porque tu mirada me derrite",
+    "Porque me haces sentir afortunado",
+    "Porque me inspiras cada día",
+    "Porque eres mi refugio",
+    "Porque me entiendes en silencio",
+    "Porque me haces sentir amado",
+    "Porque no necesito nada más que a ti",
+    "Porque eres mi confidente",
+    "Porque contigo todo es posible",
+    "Porque me haces reír hasta en días grises",
+    "Porque contigo soy yo mismo",
+    "Porque me abrazas fuerte cuando lo necesito",
+    "Porque eres mi paz en el caos",
+    "Porque me motivas a seguir adelante",
+    "Porque me haces sentir completo",
+    "Porque contigo aprendí lo que es amar",
+    "Porque nunca me sueltas",
+    "Porque me haces creer en el destino",
+    "Porque eres mi felicidad diaria",
+    "Porque en tus brazos todo es perfecto",
+    "Porque tu sonrisa ilumina mi mundo",
+    "Porque me haces sentir único",
+    "Porque tus detalles me enamoran",
+    "Porque me das razones para sonreír",
+    "Porque cada día contigo es especial",
+    "Porque tu voz es mi canción favorita",
+    "Porque me llenas de ternura",
+    "Porque me haces sentir seguro",
+    "Porque tus caricias son hogar",
+    "Porque eres la mejor parte de mis días",
+    "Porque contigo el tiempo vuela",
+    "Porque me miras como nadie más",
+    "Porque me entiendes hasta en mis silencios",
+    "Porque me llenas de ilusiones",
+    "Porque contigo todo tiene sentido",
+    "Porque me haces sentir importante",
+    "Porque eres mi compañía perfecta",
+    "Porque me haces creer en el amor",
+    "Porque tus locuras me encantan",
+    "Porque haces que lo simple sea mágico",
+    "Porque me inspiras a soñar",
+    "Porque contigo todo es más fácil",
+    "Porque eres mi mayor regalo",
+    "Porque me haces sentir orgulloso de amarte",
+    "Porque me das tranquilidad",
+    "Porque contigo quiero todo",
+    "Porque tus palabras me abrazan",
+    "Porque siempre piensas en mí",
+    "Porque me das fuerzas",
+    "Porque me haces sentir amado sin esfuerzo",
+    "Porque eres lo mejor que me pasó",
+    "Porque contigo aprendí a confiar",
+    "Porque me haces sentir amado todos los días",
+    "Porque siempre me apoyas en todo",
+    "Porque contigo cada instante vale oro",
+    "Porque me haces sentir afortunado de tenerte",
+    "Porque tu amor es único",
+    "Porque eres mi mejor amigo y mi amor",
+    "Porque me das calma cuando estoy perdido",
+    "Porque tu ternura me derrite",
+    "Porque tus besos curan mis heridas",
+    "Porque tus abrazos son medicina",
+    "Porque contigo la vida es más dulce",
+    "Porque nunca me dejas solo",
+    "Porque me entiendes como nadie",
+    "Porque me haces reír a carcajadas",
+    "Porque eres la razón de mi felicidad",
+    "Porque me haces sentir protegido",
+    "Porque me llenas de esperanza",
+    "Porque eres mi todo",
+    "Porque contigo descubrí lo que es amar de verdad",
+    "Porque me haces sentir eterno",
+    "Porque eres mi mejor elección",
+    "Porque me llenas de paz con solo mirarme",
+    "Porque eres mi sueño hecho realidad",
+    "Porque me haces sentir completo cada día",
+    "Porque eres la razón de mis ganas",
+    "Porque contigo todo se siente correcto",
+    "Porque tu amor es mi tesoro",
+    "Porque me haces feliz solo con existir",
+    "Porque simplemente eres Mileska",
+    "Siempre seré tu Marquitos Moquitos"
   ];
 
   razones.reverse().forEach((texto, i) => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.textContent = texto;
+    const p = document.createElement('p');
+    p.textContent = texto;
+    card.appendChild(p);
     card.style.zIndex = i + 1;
     stack.appendChild(card);
 

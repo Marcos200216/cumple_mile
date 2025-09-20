@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Feliz Cumpleaños</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600&display=swap');
 
   body {
     margin: 0;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Merriweather', serif;
     background: linear-gradient(135deg, #ff9a9e, #fecfef);
     display: flex;
     flex-direction: column;
@@ -49,20 +49,18 @@
   }
 
   .text-container {
-    max-width: 600px;
-    font-size: 1.8rem;
+    max-width: 650px;
+    font-size: 1.6rem;
     text-align: center;
-    line-height: 2.2rem;
+    line-height: 2.3rem;
     background: white;
     padding: 2rem;
     border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    color: black;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    color: #444;
     position: relative;
     z-index: 2;
   }
-
- 
 
   /* corazones flotando */
   .heart {
@@ -109,8 +107,7 @@
   }
 
   @media (max-width: 600px) {
-    .text-container { font-size: 1.3rem; line-height: 1.7rem; padding: 1.5rem; }
-    .btn { font-size: 1rem; padding: 0.5rem 1.2rem; }
+    .text-container { font-size: 1.2rem; line-height: 1.7rem; padding: 1.2rem; }
   }
 </style>
 </head>
@@ -135,19 +132,20 @@
   <div class="sparkle" style="left: 80%; animation-delay: 1.5s;"></div>
 
 <script>
-  const mensaje = "Feliz cumpleaños, mi amor. Cada día contigo es un regalo y hoy quiero desearte toda la felicidad del mundo. Que este nuevo año que comienzas esté lleno de amor, risas, abrazos interminables y momentos inolvidables juntos. Te amo más de lo que las palabras pueden expresar.";
-  const textContainer = document.getElementById('text');
-  let i = 0;
+const mensaje = "¡Feliz cumpleaños, mi princesa hermosa! Hoy celebro no solo el día en que naciste, sino el regalo más grande que Dios me dio: tenerte a mi lado. Eres lo que más amo, mi alegría y mi paz en todo momento. Deseo que Dios cada amanecer te regale fuerzas, que ilumine tu camino y que te conceda muchos años más llenos de amor, salud y sueños cumplidos. Eres una mujer admirable, capaz de llegar tan lejos como tu corazón lo sueñe, y yo siempre estaré aquí para amarte y apoyarte en cada paso. Te amo mi amor, feliz cumpleaños mi chiquita preciosa.";
+  
+const textContainer = document.getElementById('text');
+let i = 0;
 
-  function typeWriter() {
-    if (i < mensaje.length) {
-      textContainer.innerHTML += mensaje.charAt(i);
-      i++;
-      setTimeout(typeWriter, 50);
-    }
+function typeWriter() {
+  if (i < mensaje.length) {
+    textContainer.innerHTML += mensaje.charAt(i);
+    i++;
+    setTimeout(typeWriter, 50);
   }
+}
 
-  typeWriter();
+typeWriter();
 </script>
 
 </body>

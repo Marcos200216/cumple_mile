@@ -103,10 +103,16 @@
     margin-bottom: 1rem;
   }
 
-  .overlay-content p {
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.overlay-content p {
     font-size: 1.3rem;
     color: #333;
-  }
+    font-family: 'Playfair Display', serif; /* Elegante y romántica */
+    font-style: normal;
+    line-height: 1.6;
+    text-align: center;
+}
 
   /* X fija esquina superior derecha que va a index2 */
   .fixed-close-btn {
@@ -131,6 +137,32 @@
   }
 
   .fixed-close-btn:hover {
+    transform: scale(1.2) rotate(90deg);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  }
+
+  /* X individual para cada foto abierta */
+  .photo-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .photo-close-btn:hover {
     transform: scale(1.2) rotate(90deg);
     box-shadow: 0 6px 20px rgba(0,0,0,0.5);
   }
@@ -180,15 +212,17 @@
   <h2>Toca cada foto</h2>
 
   <div class="mosaic">
-    <img src="foto1.jpeg" class="photo" alt="Cita 1" data-text="Recuerdo nuestro primer café juntos.">
-    <img src="foto2.jpeg" class="photo" alt="Cita 2" data-text="Paseo por el parque tomados de la mano.">
-    <img src="foto3.jpeg" class="photo" alt="Cita 3" data-text="Tu sonrisa iluminando mi día.">
-    <img src="foto4.jpeg" class="photo" alt="Cita 4" data-text="Conversaciones interminables y risas.">
-    <img src="foto5.jpeg" class="photo" alt="Cita 5" data-text="El momento de despedirnos, tan especial.">
+  <img src="foto1.jpeg" class="photo" alt="Cita 1" data-text="Ese día quedé perdido en tu belleza, como quien contempla por primera vez la obra más perfecta del universo.">
+<img src="foto2.jpeg" class="photo" alt="Cita 2" data-text="A tu lado, en ese instante, sentí que la vida me regalaba la eternidad en un solo respiro.">
+<img src="foto3.jpeg" class="photo" alt="Cita 3" data-text="Ese girasol era solo un reflejo de la luz que tú ya llevas en el alma.">
+<img src="foto4.jpeg" class="photo" alt="Cita 4" data-text="Contigo, hasta el tiempo se detiene, porque no hay lugar más hermoso que tus ojos.">
+<img src="foto5.jpeg" class="photo" alt="Cita 5" data-text="Mientras la cena adornaba la mesa, tu presencia la convertía en un banquete de amor.">
+
   </div>
 
   <div class="overlay" id="overlay">
     <div class="overlay-content" id="overlayContent">
+      <button class="photo-close-btn">&times;</button>
       <img src="" id="overlayImg" alt="Foto">
       <p id="overlayText"></p>
     </div>
@@ -206,6 +240,7 @@
   const overlay = document.getElementById('overlay');
   const overlayImg = document.getElementById('overlayImg');
   const overlayText = document.getElementById('overlayText');
+  const photoCloseBtn = document.querySelector('.photo-close-btn');
 
   photos.forEach(photo => {
     photo.addEventListener('click', () => {
@@ -215,10 +250,16 @@
     });
   });
 
+  // Cerrar overlay haciendo clic en el fondo
   overlay.addEventListener('click', (e) => {
     if(e.target === overlay) {
       overlay.classList.remove('active');
     }
+  });
+
+  // Cerrar overlay con la X individual
+  photoCloseBtn.addEventListener('click', () => {
+    overlay.classList.remove('active');
   });
 </script>
 
